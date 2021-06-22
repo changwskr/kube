@@ -1,3 +1,10 @@
+var obj = {
+  v1:'q',
+  f1: function() {
+    console.log(this.v1);
+  }
+}
+
 var q = {
   v1:'v1',
   v2:'v2',
@@ -11,3 +18,7 @@ var q = {
 
 q.f1();
 q.f2();
+
+console.log('----');
+
+obj.f1();
