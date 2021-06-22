@@ -1,0 +1,39 @@
+
+
+<!--
+    서버로 전송할 영역을 정하는 것 : form
+        어느 방향으로 가라고 : action
+        요청하는 방법은 눈에 보이지 않도록 해줘 : method=Post
+    입력값을 받아들이는 것 : input (단순문자), textarea(여러줄문자열)
+        이때 저장할 변수는 name
+    서버전송 명령 : input button
+        전송해줘
+-->
+
+<!-- 전송방식이 post가 아닐때는 요청 url이 다보인다.
+http://localhost:3000/process_create?title=school&description=our+school+is+good
+
+[school]
+[our school is good]
+[submit]
+-->
+<form action="http://localhost:3000/post_create">
+    <p><input type="text" name="title"></p>
+    <p><textarea name="description"></textarea></p>    
+    <p><input type="submit"></p>
+</form>
+
+
+<!-- 전송방식이 post방식으로 호출시 url 정보가 보이지 않는다.
+http://localhost:3000/process_create
+
+[school]
+[our school is good]
+[submit]
+-->
+<form action="http://localhost:3000/post_create" method="post">
+    <p><input type="text" name="title"></p>
+    <p><textarea name="description"></textarea></p>    
+    <p><input type="submit"></p>
+</form>
+
