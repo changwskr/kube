@@ -94,6 +94,8 @@ var app = http.createServer(function(request,response){
               if(error){
                 throw error;
               }
+              console.log('1111',result.insertId);
+
               response.writeHead(302, {Location: `/?id=${result.insertId}`});
               response.end();
             }
