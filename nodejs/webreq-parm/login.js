@@ -7,7 +7,6 @@ var url = require('url');
 var server = http.createServer(function(req, res) {
 
     if(req.method == 'GET'){
-
         ///////// http://localhost:3000/?id=ohay
         var _url = req.url; // ?id=ohayo 
         var queryData = url.parse(_url,true).query; // { id: 'ohayo' } 
