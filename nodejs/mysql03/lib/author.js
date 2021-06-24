@@ -156,3 +156,44 @@ exports.delete_process = function(request, response){
         );
       });
 }
+
+//////////////////////////////////////////////////////////////
+exports.home_r = function(request, response){
+    var _url = request.url;
+    var queryData = url.parse(_url, true).query;
+    var html = '';
+  
+    db.query(`SELECT * FROM topic`, function(error,topics){   
+        db.query(`SELECT * FROM author`, function(error2,authors ){
+            var list = template.list(topics);    
+            var title = 'author';
+
+            var tag = template.authorTable_r(authors);
+            /////////////////////////////////////////////////////
+            // TABLE 이다
+            // 한레코드는 TR, 컬럼은 TD이다.
+            // HTML에서 CSS는 style속에 정의한다.
+            html = template.HTML(title, list,
+                `
+                ${tag}
+                <style>
+                    table{
+                        border-collapse:collapse;
+                    }
+                    td{
+                        border:1px solid black;
+                    }
+                </style>
+                `,
+                `<a href="/create">create</a>`
+            );
+            response.writeHead(200);
+            response.end(html);   
+            
+        }); 
+
+    });
+  }
+
+  
+  
