@@ -1,5 +1,5 @@
 var express = require('express')
-var app = express()
+var app = express() // express는 함수이다. 
  
 //route, routing
 //app.get('/', (req, res) => res.send('Hello World!'))
